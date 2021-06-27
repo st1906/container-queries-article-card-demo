@@ -33,9 +33,6 @@ class CustomArticleComponent extends HTMLElement {
     const src = this.getAttribute("src");
     const excerpt = this.getAttribute("excerpt");
 
-    articleTemplate.setAttribute("rel", "stylesheet");
-    articleTemplate.setAttribute("href", "style.css");
-
     const articleNode = articleTemplate.content.cloneNode(true);
 
     if (!!title) articleNode.querySelector("h3").innerHTML = title;
