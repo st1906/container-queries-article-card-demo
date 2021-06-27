@@ -1,7 +1,7 @@
 # Container Queries Article Card Demo
 Demo of using experimental tech container-queries to build an article feed layout.
 
-NOTE: This demo uses the syntax and features supported by Chrome Cannery on 26th June 2021.
+NOTE: This demo uses the syntax and features supported by Chrome Canary on 26th June 2021.
 Container-queries are still under development and subject to change, thus this code might/will get outdated.
 For example, to define a container this demo uses `contain: layout style inline-width`. The proposal changed the keyword to `container: size | inline-size | block-size | etc...`, but that change isn’t implemented in Chrome Cannery at the time of writing of this doc. 
 
