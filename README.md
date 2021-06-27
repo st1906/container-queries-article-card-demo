@@ -23,4 +23,4 @@ yarn start
 Container query is used for the `custom-article.js` component, in the corresponding stylesheet `custom-article-style.css`.
 
 Best place for following Container Query standard development is ccswg project board on [Github](https://github.com/w3c/csswg-drafts/projects/18).
-Work in progess draft standard can be accesed at [css-contain-3](https://drafts.csswg.org/css-contain-3/).
+Work in progess draft standard can be accessed at [css-contain-3](https://drafts.csswg.org/css-contain-3/).
