@@ -4,7 +4,8 @@
   "description": "A demo of experimental container-query tech",
   "main": "index.html",
   "scripts": {
-    "start": "yarn serve"
+    "start": "yarn serve",
+    "prettier": "yarn prettier --write ."
   },
   "author": "st1906",
   "license": "ISC",
