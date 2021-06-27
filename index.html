@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Container-queries demo</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      @supports (contain: layout inline-size) {
+        .support-banner {
+          display: none;
+        }
+      }
+      .support-banner {
+        padding: 1rem;
+        margin: 1rem auto;
+        border: 1px red dashed;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      header {
+        background-color: black;
+        color: white;
+        font-size: large;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .featured-articles {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 0.5rem;
+        max-width: 80rem;
+        margin: 0 auto;
+      }
+      .featured-articles .sideshow {
+        display: flex;
+        max-width: 18rem;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-evenly;
+      }
+      #all {
+        margin: 16px auto;
+        max-width: 66rem;
+        display: grid;
+        grid-gap: 1.5rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      @media (max-width: 580px) {
+        #all {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .featured-articles {
+          display: flex;
+          flex-direction: column;
+        }
+        .featured-articles .sideshow {
+          flex-direction: row;
+          max-width: none;
+        }
+        #all {
+          padding: 1rem 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Container Queries in article(s) example</h1></header>
+    <div class="support-banner">
+      Looks like you are using a browser that doesn't support container-queries
+      :(. Click <a href="about.html" target="_blank">here</a> to learn more.
+    </div>
+    <section class="featured-articles">
+      <div class="hero">
+        <custom-article
+          title="Hello there!"
+          excerpt="This is a demo of container queries! All article cards you see are actually the same component that doesn't accept any external logic around layouts. It modifies itself based on the space it occupies"
+        ></custom-article>
+      </div>
+      <div class="sideshow">
+        <custom-article excerpt="Try resizing the window"></custom-article>
+        <custom-article excerpt="And see what happens"></custom-article>
+        <custom-article></custom-article>
+      </div>
+    </section>
+    <section id="all"></section>
+    <script src="./src/custom-article.js"></script>
+  </body>
+  <script>
+    const allSection = document.querySelector("#all");
+    const articleEl = document.createElement("custom-article");
+    const arrayOfEls = document.createDocumentFragment();
+    let i;
+    for (i = 0; i < 16; i++) arrayOfEls.appendChild(articleEl.cloneNode(true));
+    allSection.appendChild(arrayOfEls);
+  </script>
+</html>
